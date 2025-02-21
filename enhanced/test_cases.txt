@@ -1,0 +1,101 @@
+# Base Courses (No Prerequisites)
+CS100,Programming Foundations
+CS101,Computer Science Basics
+MAT100,Basic Mathematics
+PHY100,Basic Physics
+
+# Invalid Course IDs (Should be caught by validation)
+CS1,Invalid Short ID
+TOOLONG123456,Too Long Course ID
+123456,Numbers Only
+ABCDEF,Letters Only
+
+# Missing/Invalid Prerequisites
+CS201,Missing Prerequisite Course,FAKE101
+CS202,Multiple Missing Prerequisites,FAKE101,FAKE102
+CS203,Mixed Valid/Invalid Prerequisites,CS100,FAKE101
+
+# Circular Dependencies (Various Types)
+CIRC101,Simple Circle A,CIRC102
+CIRC102,Simple Circle B,CIRC101
+CIRC201,Long Circle 1,CIRC202
+CIRC202,Long Circle 2,CIRC203
+CIRC203,Long Circle 3,CIRC204
+CIRC204,Long Circle 4,CIRC201
+CIRC301,Complex Circle A,CIRC302,CS100
+CIRC302,Complex Circle B,CIRC303
+CIRC303,Complex Circle C,CIRC301
+
+# Multiple Prerequisite Paths
+PATH101,Final Course,PATH102,PATH103
+PATH102,Path Option A,PATH104
+PATH103,Path Option B,PATH104
+PATH104,Common Prerequisite
+
+# Deep Prerequisites Chain
+DEEP101,Level 1,CS100
+DEEP102,Level 2,DEEP101
+DEEP103,Level 3,DEEP102
+DEEP104,Level 4,DEEP103
+DEEP105,Level 5,DEEP104
+
+# Multiple Prerequisites
+MULT101,Two Prerequisites,CS100,MAT100
+MULT102,Three Prerequisites,CS100,MAT100,PHY100
+MULT103,Four Prerequisites,CS100,MAT100,PHY100,CS101
+
+# Branch Prerequisites
+BRANCH101,Branch Root
+BRANCH102,Branch A,BRANCH101
+BRANCH103,Branch B,BRANCH101
+BRANCH104,Branch Merge,BRANCH102,BRANCH103
+
+# Cross-Discipline Prerequisites
+CROSS101,Math and CS Mix,CS100,MAT100
+CROSS102,Triple Mix,CS100,MAT100,PHY100
+
+# Special Characters in Titles
+SPEC101,Course: With Colon,CS100
+SPEC102,Course, With Comma,CS100
+SPEC103,Course; With Semicolon,CS100
+SPEC104,Course & Symbols #@!,CS100
+
+# Case Sensitivity Tests
+CASE101,UPPERCASE Course,CS100
+case102,lowercase Course,CS100
+Case103,MixedCase Course,CS100
+
+# Whitespace Tests
+SPACE101,  Course With Leading Spaces  ,CS100
+SPACE102,Course With Trailing Spaces  ,CS100
+SPACE103,  Course With Both Spaces  ,CS100
+
+# Empty Field Tests
+EMPTY101,,Empty Course Name,CS100
+EMPTY102,Course With Empty Middle,,CS100
+
+# Maximum Load Chain
+MAX101,Course One,CS100
+MAX102,Course Two,MAX101
+MAX103,Course Three,MAX102
+MAX104,Course Four,MAX103
+MAX105,Course Five,MAX104
+MAX106,Course Six,MAX105
+MAX107,Course Seven,MAX106
+MAX108,Course Eight,MAX107
+MAX109,Course Nine,MAX108
+MAX110,Course Ten,MAX109
+
+# Duplicate Prerequisites
+DUP101,Duplicate Prerequisites Test,CS100,CS100,CS100
+
+# Self-Reference Test
+SELF101,Self Prerequisite Test,SELF101
+
+# Complex Multiple Paths
+CPX101,Start Course
+CPX102,Path A1,CPX101
+CPX103,Path A2,CPX102
+CPX104,Path B1,CPX101
+CPX105,Path B2,CPX104
+CPX106,Merge Point,CPX103,CPX105
